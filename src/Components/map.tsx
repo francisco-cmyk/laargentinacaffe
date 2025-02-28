@@ -28,12 +28,9 @@ function Map() {
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_KEY,
   });
 
-  const [map, setMap] = useState<any | null>(null);
+  const [_, setMap] = useState<any | null>(null);
 
   const onLoad = useCallback(function callback(map: google.maps.Map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    // map.fitBounds(bounds);
     map.setZoom(zoom);
 
     setMap(map);

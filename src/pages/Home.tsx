@@ -48,12 +48,14 @@ export default function Home() {
               >
                 View Menu
               </Button>
-              <Button
-                size='lg'
-                className='bg-argentina-blue hover:bg-blue-300 text-white '
-              >
-                Order Online
-              </Button>
+              <a href={doorDashLink} target='_blank'>
+                <Button
+                  size='lg'
+                  className='bg-argentina-blue hover:bg-blue-300 text-white '
+                >
+                  Order Online
+                </Button>
+              </a>
             </div>
           </div>
         </section>
@@ -211,7 +213,6 @@ export default function Home() {
                   to={doorDashLink}
                   target='_blank'
                   className='text-muted-foreground hover:text-primary'
-                  onClick={() => scrollToSection("location")}
                 >
                   Order Online
                 </Link>

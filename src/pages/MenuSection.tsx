@@ -74,7 +74,7 @@ export function MenuSection() {
           className='bg-argentina-gold transition-colors hover:bg-argentina-gold/90 font-semibold shadow-none'
           onClick={() => setShowFullMenu(!showFullMenu)}
         >
-          View Full Menu
+          {showFullMenu ? "Close full menu" : "View full menu"}
         </Button>
       </div>
     </section>

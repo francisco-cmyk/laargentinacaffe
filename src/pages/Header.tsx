@@ -1,8 +1,9 @@
 import { Button } from "../Components/button";
 import { Link } from "react-router-dom";
 import { doorDashLink } from "../lib/menu";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, ShoppingCart } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../Components/popover";
+import { Separator } from "../Components/separator";
 
 export function Header() {
   function scrollToSection(id: string) {
@@ -72,36 +73,39 @@ export function Header() {
               <PopoverContent className='w-52 text-sm flex flex-col p-2 mr-2'>
                 <Link
                   to='#about'
-                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
+                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2 font-semibold'
                   onClick={() => scrollToSection("about")}
                 >
                   About
                 </Link>
                 <Link
                   to='#menu'
-                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
+                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2 font-semibold'
                   onClick={() => scrollToSection("menu")}
                 >
                   Menu
                 </Link>
                 <Link
                   to='#location'
-                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
+                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2 font-semibold'
                   onClick={() => scrollToSection("location")}
                 >
                   Location
                 </Link>
+                <Separator className='mt-1' />
                 <Link
                   to='tel:+13056461321'
-                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
+                  className='flex items-center gap-x-2 transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2 font-semibold'
                 >
+                  <Phone size={14} />
                   Call now
                 </Link>
                 <Link
                   to={doorDashLink}
                   target='_blank'
-                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
+                  className=' flex items-center gap-x-2 transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2 font-semibold'
                 >
+                  <ShoppingCart size={14} />
                   Order Online
                 </Link>
               </PopoverContent>

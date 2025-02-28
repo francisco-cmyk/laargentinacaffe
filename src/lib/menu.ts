@@ -42,7 +42,7 @@ export const menuItems: MenuItem[] = [
   {
     name: "Omelette Eggs Sandwich",
     price: "$7.28",
-    description: "",
+    description: "A savory omlette egg sandwich",
     type: "food",
   },
   {

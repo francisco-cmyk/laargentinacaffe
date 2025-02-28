@@ -75,9 +75,9 @@ export default function Home() {
                 sandwiches, we promise an unforgettable experience at affordable
                 prices.
               </p>
-              <Button>Learn More</Button>
+              <Button className='hidden'>Learn More</Button>
             </div>
-            <div className='relative h-[400px] rounded-lg overflow-hidden'>
+            <div className='relative lg:h-[400px] rounded-lg overflow-hidden'>
               <img
                 src='https://i.pinimg.com/736x/eb/8e/81/eb8e81447d2bf8dd68c62d207d3f51f9.jpg'
                 alt='Cafe interior'

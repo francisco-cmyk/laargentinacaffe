@@ -69,32 +69,38 @@ export function Header() {
               <PopoverTrigger>
                 <Menu />
               </PopoverTrigger>
-              <PopoverContent className='w-52 text-sm flex flex-col p-2'>
+              <PopoverContent className='w-52 text-sm flex flex-col p-2 mr-2'>
                 <Link
                   to='#about'
-                  className='transition-colors hover:text-foreground/80 p-2'
+                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
                   onClick={() => scrollToSection("about")}
                 >
                   About
                 </Link>
                 <Link
                   to='#menu'
-                  className='transition-colors hover:text-foreground/80 p-2'
+                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
                   onClick={() => scrollToSection("menu")}
                 >
                   Menu
                 </Link>
                 <Link
                   to='#location'
-                  className='transition-colors hover:text-foreground/80 p-2'
+                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
                   onClick={() => scrollToSection("location")}
                 >
                   Location
                 </Link>
                 <Link
+                  to='tel:+13056461321'
+                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
+                >
+                  Call now
+                </Link>
+                <Link
                   to={doorDashLink}
                   target='_blank'
-                  className='transition-colors hover:text-foreground/80 p-2'
+                  className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2'
                 >
                   Order Online
                 </Link>

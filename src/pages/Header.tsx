@@ -21,21 +21,21 @@ export function Header() {
           </Link>
           <nav className='flex items-center space-x-6 text-sm font-medium'>
             <Link
-              to='#about'
+              to=''
               className='transition-colors hover:text-foreground/80'
               onClick={() => scrollToSection("about")}
             >
               About
             </Link>
             <Link
-              to='#menu'
+              to=''
               className='transition-colors hover:text-foreground/80'
               onClick={() => scrollToSection("menu")}
             >
               Menu
             </Link>
             <Link
-              to='#location'
+              to=''
               className='transition-colors hover:text-foreground/80'
               onClick={() => scrollToSection("location")}
             >
@@ -72,21 +72,21 @@ export function Header() {
               </PopoverTrigger>
               <PopoverContent className='w-52 text-sm flex flex-col p-2 mr-2'>
                 <Link
-                  to='#about'
+                  to=''
                   className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2 font-semibold'
                   onClick={() => scrollToSection("about")}
                 >
                   About
                 </Link>
                 <Link
-                  to='#menu'
+                  to=''
                   className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2 font-semibold'
                   onClick={() => scrollToSection("menu")}
                 >
                   Menu
                 </Link>
                 <Link
-                  to='#location'
+                  to=''
                   className='transition-colors hover:bg-secondary rounded-sm hover:text-foreground/80 p-2 font-semibold'
                   onClick={() => scrollToSection("location")}
                 >

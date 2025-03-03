@@ -43,7 +43,7 @@ export default function Home() {
             <div className='flex flex-col sm:flex-row gap-4'>
               <Button
                 size='lg'
-                className='bg-secondary text-secondary-foreground hover:bg-zinc-300 hover:text-white '
+                className='bg-argentina-gold  px-4 py-2 rounded-md transition-colors hover:bg-argentina-gold/90 font-semibold'
                 onClick={() => scrollToSection("menu")}
               >
                 View Menu

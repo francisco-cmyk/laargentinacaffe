@@ -1,81 +1,61 @@
 import { useState } from "react";
 import { Button } from "../Components/button";
-import { Separator } from "../Components/separator";
-import { menuItems } from "../lib/menu";
+import { menuCategories } from "../lib/menu";
+import { useTranslation } from "react-i18next";
 
 export function MenuSection() {
+  const { t } = useTranslation();
   const [showFullMenu, setShowFullMenu] = useState(false);
 
-  const foodItems = menuItems.filter((items) => items.type == "food");
-  const drinkItems = menuItems.filter((items) => items.type === "drink");
   return (
     <section id='menu' className='py-16 container'>
       <h2 className='lg:text-3xl text-xl font-bold text-center mb-12 '>
-        Our Menu
+        {t("our_menu")}
       </h2>
-
-      <div className='grid md:grid-cols-2 gap-x-12 gap-y-8'>
-        <div>
-          <h3 className='lg:text-2xl text-lg font-semibold mb-6'>
-            Main Courses
-          </h3>
-          <div className='space-y-6'>
-            {foodItems
-              .slice(0, showFullMenu ? foodItems.length : 4)
-              .map((item, index) => (
-                <div
-                  key={`${item.name}-${index}`}
-                  className='flex flex-col p-1'
-                >
-                  <div className='flex justify-between items-center'>
-                    <div>
-                      <h4 className='text-lg font-medium'>{item.name}</h4>
-                      <p className='text-muted-foreground xl:text-base text-sm'>
-                        {item.description}
-                      </p>
+      <div>
+        <div className='grid md:grid-cols-2 gap-8'>
+          {menuCategories
+            .slice(0, showFullMenu ? menuCategories.length : 4)
+            .map((category, index) => (
+              <div key={`${category.category}-${index}`}>
+                <h3 className='lg:text-2xl text-xl font-semibold mb-4 text-argentina-blue'>
+                  {t(category.category)}
+                </h3>
+                <div className='space-y-4'>
+                  {category.items.map((item, itemIndex) => (
+                    <div
+                      key={`${item.name}-${itemIndex}`}
+                      className='flex justify-between items-start'
+                    >
+                      <div className='w-2/3'>
+                        <h4 className='lg:text-lg text-sm font-medium'>
+                          {t(item.name)}
+                        </h4>
+                        <p className='lg:text-base text-xs text-muted-foreground'>
+                          {t(item.description)}
+                        </p>
+                      </div>
+                      <span className='lg:text-base text-sm font-semibold text-argentina-gold'>
+                        {item.price.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        })}
+                      </span>
                     </div>
-                    <span className='font-semibold'>{item.price}</span>
-                  </div>
-                  <Separator />
+                  ))}
                 </div>
-              ))}
-          </div>
+              </div>
+            ))}
         </div>
-
-        <div>
-          <h3 className='text-2xl font-semibold mb-6'>Coffee & Beverages</h3>
-          <div className='space-y-6'>
-            {drinkItems
-              .slice(0, showFullMenu ? drinkItems.length : 4)
-              .map((item, index) => (
-                <div
-                  key={`${item.name}-${index}`}
-                  className='flex flex-col p-1'
-                >
-                  <div className='flex justify-between items-center'>
-                    <div>
-                      <h4 className='text-lg font-medium'>{item.name}</h4>
-                      <p className='text-muted-foreground  xl:text-base text-sm'>
-                        {item.description}
-                      </p>
-                    </div>
-                    <span className='font-semibold'>{item.price}</span>
-                  </div>
-                  <Separator />
-                </div>
-              ))}
-          </div>
+        <div className='mt-12 text-center'>
+          <Button
+            size='lg'
+            onClick={() => setShowFullMenu(!showFullMenu)}
+            className='bg-argentina-blue text-argentina-white hover:bg-argentina-blue/90'
+          >
+            {showFullMenu ? t("show_less") : t("view_full_menu")}
+          </Button>
         </div>
-      </div>
-
-      <div className='mt-12 text-center'>
-        <Button
-          size='lg'
-          className='bg-argentina-gold transition-colors hover:bg-argentina-gold/90 font-semibold shadow-none'
-          onClick={() => setShowFullMenu(!showFullMenu)}
-        >
-          {showFullMenu ? "Close full menu" : "View full menu"}
-        </Button>
       </div>
     </section>
   );

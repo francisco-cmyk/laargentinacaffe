@@ -1,44 +1,41 @@
 import { Button } from "../Components/button";
 import { Card, CardContent } from "../Components/card";
 import { doorDashLink, MenuItem } from "../lib/menu";
+import { useTranslation } from "react-i18next";
 
 type MenuItemWithPic = MenuItem & { image: string };
 
 const specialItems: MenuItemWithPic[] = [
   {
-    name: "Ham and Cheese Empanada",
-    price: "$2.58",
-    description:
-      "Fresh homemade. Bread dough stuffed with ham and cheese, eggs, red peppers",
-    type: "food",
+    name: "menu_items.ham_and_cheese_empanada",
+    description: "menu_items.ham_and_cheese_empanada_desc",
+    price: 2.5,
     image:
       "https://amsterdambakingcompany.com/cdn/shop/files/IMG_8959-2.jpg?v=1717954507&width=1920",
   },
   {
-    name: "Milanesa Sandwich",
-    price: "$8.38",
-    description:
-      "Delicious milanesa sandwich with your choice beef or chicken breaded with lettuce, tomatoes and mayonnaise",
-    type: "food",
+    name: "menu_items.milanesa_sandwich",
+    description: "menu_items.milanesa_sandwich_desc",
+    price: 8.3,
     image:
       "https://tatoremiami.com/wp-content/uploads/2020/05/Mila-Sandwich.jpg",
   },
   {
-    name: "Choripan Sandwich",
-    price: "$7.28",
-    description:
-      "Grill sausage with lettuce, tomatoes, and chimichurri sauce from the streets of Argentina to your corner of Miami",
-    type: "food",
+    name: "menu_items.choripan",
+    description: "menu_items.choripan_desc",
+    price: 7.28,
     image:
       "https://tarasmulticulturaltable.com/wp-content/uploads/2016/02/Choripan-Argentinian-Chorizo-Sandwiches-1-of-3.jpg",
   },
 ];
 
 export function Specials() {
+  const { t } = useTranslation();
+
   return (
     <div className='container'>
       <h2 className='lg:text-3xl text-xl font-bold text-center mb-12 text-argentina-white'>
-        Today's Specials
+        {t("todays_specials")}
       </h2>
       <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-8'>
         {specialItems.map((item, index) => (
@@ -51,13 +48,20 @@ export function Specials() {
               />
             </div>
             <CardContent className='p-6'>
-              <h3 className='text-xl font-bold mb-2'>{item.name}</h3>
-              <p className='text-muted-foreground mb-4'>{item.description}</p>
+              <h3 className='text-xl font-bold mb-2'>{t(item.name)}</h3>
+              <p className='text-muted-foreground mb-4'>
+                {t(item.description)}
+              </p>
               <div className='flex justify-between items-center'>
-                <span className='text-lg font-bold'>{item.price}</span>
+                <span className='text-lg lg:font-bold font-semibold text-argentina-gold'>
+                  {item.price.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}
+                </span>
                 <a href={doorDashLink} target='_blank'>
                   <Button variant='outline' size='sm'>
-                    Order Now
+                    {t("order_now")}
                   </Button>
                 </a>
               </div>

@@ -5,11 +5,12 @@ import { Header } from "./Header";
 import { MenuSection } from "./MenuSection";
 import { Specials } from "./Specials";
 import Map from "../Components/map";
-
-const doorDashLink =
-  "https://order.online/store/la-argentina-caffe-miami-32915381/?hideModal=true&pickup=true&redirected=true";
+import { useTranslation } from "react-i18next";
+import { doorDashLink } from "../lib/menu";
 
 export default function Home() {
+  const { t } = useTranslation();
+
   function scrollToSection(id: string) {
     const element = document.getElementById(id);
     if (element) {
@@ -38,7 +39,7 @@ export default function Home() {
               La Argentina Caffe
             </h1>
             <p className='text-xl md:text-2xl mb-8'>
-              Authentic Argentinian Cuisine & Coffee
+              {t("Authentic_Argentinian_Cuisine")}
             </p>
             <div className='flex flex-col sm:flex-row gap-4'>
               <Button
@@ -46,14 +47,14 @@ export default function Home() {
                 className='bg-argentina-gold  px-4 py-2 rounded-md transition-colors hover:bg-argentina-gold/90 font-semibold'
                 onClick={() => scrollToSection("menu")}
               >
-                View Menu
+                {t("view_menu")}
               </Button>
               <a href={doorDashLink} target='_blank'>
                 <Button
                   size='lg'
                   className='bg-argentina-blue hover:bg-blue-300 text-white '
                 >
-                  Order Online
+                  {t("order_online")}
                 </Button>
               </a>
             </div>
@@ -64,20 +65,15 @@ export default function Home() {
         <section id='about' className='py-16 container'>
           <div className='grid md:grid-cols-2 gap-12 items-center'>
             <div>
-              <h2 className='lg:text-3xl text-xl font-bold mb-6'>Our Story</h2>
+              <h2 className='lg:text-3xl text-xl font-bold mb-6'>
+                {t("our_story")}
+              </h2>
               <p className='text-muted-foreground mb-4'>
-                La Argentina Caffe brings the authentic flavors of Argentina to
-                your table. Our passion for quality ingredients and traditional
-                recipes has made us a beloved destination for food enthusiasts.
+                {t("our_story_bio_1")}
               </p>
               <p className='text-muted-foreground mb-6'>
-                Every dish is prepared with care, honoring the rich culinary
-                heritage of Argentina while adding our own unique touch. From
-                our famous empanadas to our perfectly balanced milanesa
-                sandwiches, we promise an unforgettable experience at affordable
-                prices.
+                {t("our_story_bio_2")}
               </p>
-              <Button className='hidden'>Learn More</Button>
             </div>
             <div className='relative lg:h-[400px] rounded-lg overflow-hidden'>
               <img
@@ -101,7 +97,7 @@ export default function Home() {
         <section id='location' className='py-16 bg-blue-300'>
           <div className='container mx-auto px-4'>
             <h2 className='lg:text-3xl text-xl font-bold text-center mb-12 text-argentina-white'>
-              Location & Hours
+              {t("location_and_hours")}
             </h2>
             <div className='grid md:grid-cols-2 gap-8 items-center'>
               <div className='bg-card rounded-lg p-8 shadow-sm'>
@@ -109,7 +105,7 @@ export default function Home() {
                   <MapPin className='h-6 w-6 text-primary flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='xl:text-xl text-base font-semibold mb-2'>
-                      Our Address
+                      {t("our_address")}
                     </h3>
                     <p className='text-muted-foreground xl:text-base text-sm'>
                       2441 NW 77th Terrace
@@ -124,16 +120,16 @@ export default function Home() {
                   <Clock className='h-6 w-6 text-primary flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='xl:text-xl text-base font-semibold mb-2'>
-                      Opening Hours
+                      {t("opening_hours")}
                     </h3>
                     <p className='text-muted-foreground xl:text-base text-sm'>
-                      Monday - Friday: 7:00 AM - 5:00 PM
+                      {`${t("monday")} - ${t("friday")} 7:00 AM - 5:00 PM`}
                     </p>
                     <p className='text-muted-foreground xl:text-base text-sm'>
-                      Saturday: 7:00 AM - 5:00 PM
+                      {`${t("saturday")}  7:00 AM - 5:00 PM`}
                     </p>
                     <p className='text-muted-foreground xl:text-base text-sm'>
-                      Sunday - Closed
+                      {`${t("sunday")} - ${t("closed")} `}
                     </p>
                   </div>
                 </div>
@@ -142,10 +138,10 @@ export default function Home() {
                   <Phone className='h-6 w-6 text-primary flex-shrink-0 mt-1' />
                   <div>
                     <h3 className='xl:text-xl text-base font-semibold mb-2'>
-                      Contact
+                      {t("contact")}
                     </h3>
                     <p className='text-muted-foreground xl:text-base text-sm '>
-                      Phone: (305) 646-1321
+                      {`${t("phone")} (305) 646-1321`}
                     </p>
                     <p className='text-muted-foreground xl:text-base text-sm'>
                       Email: laargentinacaffe@gmail.com
@@ -155,7 +151,6 @@ export default function Home() {
               </div>
 
               <div className='relative h-[400px] rounded-lg overflow-hidden'>
-                {/* This would be a map in a real application */}
                 <Map />
               </div>
             </div>
@@ -170,8 +165,7 @@ export default function Home() {
             <div>
               <h3 className='text-lg font-semibold mb-4'>La Argentina Caffe</h3>
               <p className='text-muted-foreground mb-4'>
-                Bringing the authentic taste of Argentina to your neighborhood
-                at great prices.
+                {t("our_story_bio_3")}
               </p>
               <div className='flex space-x-4'>
                 <Link
@@ -186,35 +180,35 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className='text-lg font-semibold mb-4'>Quick Links</h3>
+              <h3 className='text-lg font-semibold mb-4'>{t("quick_links")}</h3>
               <nav className='flex flex-col space-y-2'>
                 <Link
-                  to='#about'
+                  to=''
                   className='text-muted-foreground hover:text-primary'
                   onClick={() => scrollToSection("about")}
                 >
-                  About Us
+                  {t("about_us")}
                 </Link>
                 <Link
-                  to='#menu'
+                  to=''
                   className='text-muted-foreground hover:text-primary'
                   onClick={() => scrollToSection("menu")}
                 >
-                  Menu
+                  {t("menu")}
                 </Link>
                 <Link
-                  to='#location'
+                  to=''
                   className='text-muted-foreground hover:text-primary'
                   onClick={() => scrollToSection("location")}
                 >
-                  Location
+                  {t("location")}
                 </Link>
                 <Link
                   to={doorDashLink}
                   target='_blank'
                   className='text-muted-foreground hover:text-primary'
                 >
-                  Order Online
+                  {t("order_online")}
                 </Link>
               </nav>
             </div>
@@ -222,8 +216,7 @@ export default function Home() {
 
           <div className='mt-12 pt-6 border-t text-center text-muted-foreground'>
             <p>
-              © {new Date().getFullYear()} La Argentina Caffe. All rights
-              reserved.
+              © {new Date().getFullYear()} {t("rights_reserved")}.
             </p>
           </div>
         </div>

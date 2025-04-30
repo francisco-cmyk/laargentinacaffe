@@ -5,7 +5,7 @@
 ## 🌍 Live Version
 
 Check out the deployed version here:
-🔗 [Live Website](https://laargentinacaffe.netlify.app/)
+🔗 [Live Website](https://laargentinacaffe.com/)
 
 🚀 A modern, responsive **Single Page Application (SPA)** for **La Argentina Caffe**, built with [React and Tailwind Css. This app provides an interactive menu and a seamless user experience. The purpose for this SPA is mainly for online ordering through DoorDash's commission free online-ordering program.
 
